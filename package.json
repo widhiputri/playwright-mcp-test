@@ -9,11 +9,10 @@
     "test:negative": "cucumber-js --tags=\"@negative\"",
     "test:edge": "cucumber-js --tags=\"@edge-case\"",
     "install:browsers": "npx playwright install",
-    "count-tokens": "node scripts/token-counter.js",
-    "count-tokens:detailed": "node scripts/token-counter.js --detailed",
-    "count-session": "node scripts/session-counter.js",
-    "count-full-dev": "node scripts/full-development-token-counter.js",
-    "encrypt-password": "node scripts/encrypt-password.js"
+    "count-tokens": "npx ts-node scripts/token-counter.ts",
+    "count-tokens:detailed": "npx ts-node scripts/token-counter.ts --verbose",
+    "count-full-dev": "npx ts-node scripts/full-development-token-counter.ts",
+    "encrypt-password": "npx ts-node scripts/encrypt-password.ts"
   },
   "keywords": ["playwright", "tokens", "testing", "analysis", "cucumber", "e2e"],
   "author": "",

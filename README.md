@@ -34,10 +34,10 @@ Current test coverage includes:
 │   ├── helpers.ts                  # Page interaction helpers
 │   └── encryption.ts               # Password encryption utilities
 ├── 📁 scripts/                     # Development Tools
-│   ├── token-counter.js            # Token analysis tool
-│   ├── full-development-token-counter.js  # Development cost estimator
+│   ├── token-counter.ts            # Token analysis tool (TypeScript)
+│   ├── full-development-token-counter.ts  # Development cost estimator (TypeScript)
 │   ├── universal-token-counter.ps1  # PowerShell alternative
-│   └── encrypt-password.js         # Password encryption utility
+│   └── encrypt-password.ts         # Password encryption utility (TypeScript)
 ├── 📁 .github/                     # GitHub Configuration
 │   └── copilot-instructions.md     # AI coding guidelines
 ├── TOKEN-COUNTER-USAGE.md          # Token analysis usage guide
@@ -73,12 +73,12 @@ Current test coverage includes:
 
 Advanced development cost analysis tools included:
 
-### Basic Analysis (`token-counter.js`)
+### Basic Analysis (`token-counter.ts`)
 - INPUT vs OUTPUT token separation
 - File-type breakdown with cost estimation
 - Deliverable size analysis
 
-### Full Development Analysis (`full-development-token-counter.js`)
+### Full Development Analysis (`full-development-token-counter.ts`)
 - Complete development effort estimation
 - Conversation, debugging, and iteration costs
 - 17.6x development multiplier calculations

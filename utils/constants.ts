@@ -1,9 +1,11 @@
 export const URLS = {
-  BASE_URL: 'https://ui.am.drax.dev/',
-  LOGIN: 'https://ui.am.drax.dev/login',
-  DASHBOARD: 'https://ui.am.drax.dev/dashboard',
-  CLIENT_MANAGEMENT: 'https://ui.am.drax.dev/clients',
-  ENTITY_MANAGEMENT: 'https://ui.am.drax.dev/entities'
+  DEV_BASE_URL: 'https://ui.am.drax.dev',
+  PAGES: {
+    LOGIN: '/login',
+    DASHBOARD: '/dashboard',
+    CLIENT_MANAGEMENT: '/clients',
+    ENTITY_MANAGEMENT: '/entities'
+  }
 } as const;
 
 import { decryptPassword } from './encryption';

@@ -75,7 +75,7 @@ npm run count-full-dev -- --verbose
 ### **For Daily Use:**
 1. Use `npm run count-tokens` before AI sessions (shows deliverable size)
 2. Track how OUTPUT tokens grow as you use AI 
-3. Copy `token-counter.js` to other projects
+3. Copy TypeScript token counters to other projects
 4. Plan budgets based on deliverable estimates
 
 ### **For Development Planning:**
@@ -88,18 +88,18 @@ npm run count-full-dev -- --verbose
 ```bash
 # Essential files to copy to any new project:
 📁 scripts/
-  ├── token-counter.js                   # MUST HAVE - Basic deliverable analysis
-  ├── full-development-token-counter.js  # MUST HAVE - True development costs
+  ├── token-counter.ts                   # MUST HAVE - Basic deliverable analysis (TypeScript)
+  ├── full-development-token-counter.ts  # MUST HAVE - True development costs (TypeScript)
   └── universal-token-counter.ps1        # OPTIONAL - PowerShell alternative
 
 # Add to your new project's package.json:
 "scripts": {
-  "count-tokens": "node scripts/token-counter.js",
-  "count-full-dev": "node scripts/full-development-token-counter.js"
+  "count-tokens": "npx ts-node scripts/token-counter.ts",
+  "count-full-dev": "npx ts-node scripts/full-development-token-counter.ts"
 }
 
 # Install dependencies in new project:
-npm install commander glob
+npm install commander glob ts-node typescript @types/node
 ```
 
 ### **Quick Setup for New Projects:**
@@ -107,18 +107,18 @@ npm install commander glob
 # 1. Create scripts folder
 mkdir scripts
 
-# 2. Copy the two essential JavaScript files
-cp /path/to/this/project/scripts/token-counter.js scripts/
-cp /path/to/this/project/scripts/full-development-token-counter.js scripts/
+# 2. Copy the two essential TypeScript files
+cp /path/to/this/project/scripts/token-counter.ts scripts/
+cp /path/to/this/project/scripts/full-development-token-counter.ts scripts/
 
 # 3. Add npm scripts to package.json (see above)
 
 # 4. Install dependencies
-npm install commander glob
+npm install commander glob ts-node typescript @types/node
 
 # 5. Start using immediately
 npm run count-tokens           # See current project size
 npm run count-full-dev        # Estimate development costs
 ```
 
-**These tools work in ANY JavaScript/TypeScript project - just copy and use!** 
+**These tools work in ANY TypeScript/JavaScript project - just copy and use!** 

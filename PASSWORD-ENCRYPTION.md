@@ -185,7 +185,7 @@ utils/
 └── helpers.ts             # Updated to use getPassword()
 
 scripts/
-└── encrypt-password.js    # CLI tool for encryption
+└── encrypt-password.ts    # CLI tool for encryption (TypeScript)
 
 .env.example               # Environment template
 ```

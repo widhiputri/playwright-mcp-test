@@ -20,7 +20,7 @@ Given('a user navigates to the application', async function () {
   clientHelper = new ClientHelper(page);
   entityHelper = new EntityHelper(page);
   
-  await page.goto(URLS.BASE_URL);
+  await page.goto(`${URLS.DEV_BASE_URL}${URLS.PAGES.LOGIN}`);
   await page.waitForLoadState('networkidle');
 });
 
