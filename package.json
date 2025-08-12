@@ -1,0 +1,35 @@
+{
+  "name": "playwright-mcp-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:debug": "cucumber-js --tags=\"@debug\"",
+    "test:smoke": "cucumber-js --tags=\"@smoke\"",
+    "test:negative": "cucumber-js --tags=\"@negative\"",
+    "test:edge": "cucumber-js --tags=\"@edge-case\"",
+    "install:browsers": "npx playwright install",
+    "count-tokens": "node scripts/token-counter.js",
+    "count-tokens:detailed": "node scripts/token-counter.js --detailed",
+    "count-session": "node scripts/session-counter.js",
+    "count-full-dev": "node scripts/full-development-token-counter.js"
+  },
+  "keywords": ["playwright", "tokens", "testing", "analysis", "cucumber", "e2e"],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "@types/node": "^24.2.0",
+    "playwright": "^1.54.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/cucumber": "^6.0.1",
+    "tiktoken": "^1.0.10",
+    "glob": "^10.3.0",
+    "commander": "^11.0.0"
+  }
+}
