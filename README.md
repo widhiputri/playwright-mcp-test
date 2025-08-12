@@ -51,6 +51,7 @@ Current test coverage includes:
 - **Robust Selectors** - Semantic locators with fallback strategies
 - **Error Resilience** - Comprehensive exception handling and retry logic
 - **Cross-Browser Support** - Tested across multiple browser engines
+- **Password Encryption** - AES-256-GCM encrypted credentials for security
 
 ### Test Categories
 - **@smoke** - Core functionality validation
@@ -109,6 +110,7 @@ npm run test:edge      # Edge cases
 # Development utilities  
 npm run count-tokens    # Analyze current project size
 npm run count-full-dev  # Estimate development costs
+npm run encrypt-password "your-password"  # Encrypt passwords securely
 ```
 
 ### Token Analysis
@@ -184,7 +186,18 @@ This framework can be easily adapted for different web applications:
 4. **Configure Playwright** - Adjust browser and test settings
 
 ### Copying to New Projects
-See `scripts/TOKEN-COUNTER-USAGE.md` for detailed instructions on copying the token counting tools to other projects.
+- See `scripts/TOKEN-COUNTER-USAGE.md` for token counting tools
+- See `PASSWORD-ENCRYPTION.md` for secure credential setup
+
+## 🔐 Security Features
+
+### Password Encryption
+- **AES-256-GCM encryption** for secure credential storage
+- **Environment-based keys** for different deployment environments
+- **CLI utility** for easy password encryption: `npm run encrypt-password`
+- **No plain text passwords** committed to version control
+
+See `PASSWORD-ENCRYPTION.md` for complete setup and usage guide.
 
 ## 📊 Results & Reporting
 

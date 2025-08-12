@@ -12,7 +12,8 @@
     "count-tokens": "node scripts/token-counter.js",
     "count-tokens:detailed": "node scripts/token-counter.js --detailed",
     "count-session": "node scripts/session-counter.js",
-    "count-full-dev": "node scripts/full-development-token-counter.js"
+    "count-full-dev": "node scripts/full-development-token-counter.js",
+    "encrypt-password": "node scripts/encrypt-password.js"
   },
   "keywords": ["playwright", "tokens", "testing", "analysis", "cucumber", "e2e"],
   "author": "",

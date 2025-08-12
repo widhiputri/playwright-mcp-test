@@ -4,7 +4,7 @@ import { SELECTORS, CREDENTIALS } from './constants';
 export class LoginHelper {
   constructor(private page: Page) {}
 
-  async login(email: string = CREDENTIALS.OPERATOR.email, password: string = CREDENTIALS.OPERATOR.password) {
+  async login(email: string = CREDENTIALS.OPERATOR.email, password: string = CREDENTIALS.OPERATOR.getPassword()) {
     await this.page.waitForLoadState('networkidle');
     
     // Wait for the page to fully load and detect login form elements

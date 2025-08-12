@@ -6,10 +6,15 @@ export const URLS = {
   ENTITY_MANAGEMENT: 'https://ui.am.drax.dev/entities'
 } as const;
 
+import { decryptPassword } from './encryption';
+
 export const CREDENTIALS = {
   OPERATOR: {
     email: 'qa-op@hydrax.io',
-    password: 'hXadmin@2018'
+    // Encrypted password - use decryptPassword() to get plain text
+    encryptedPassword: '23UhnRdMcwuzI/sLH2rAOkolHrAClrUnB6VBP8/394u1xMjvXXCcrOhw+LM=',
+    // Helper method to get decrypted password
+    getPassword: () => decryptPassword('23UhnRdMcwuzI/sLH2rAOkolHrAClrUnB6VBP8/394u1xMjvXXCcrOhw+LM=')
   }
 } as const;
 
