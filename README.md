@@ -31,14 +31,18 @@ Current test coverage includes:
 │   └── hooks.ts                    # Setup/teardown hooks
 ├── 📁 utils/                       # Shared Utilities
 │   ├── constants.ts                # App constants & credentials
-│   └── helpers.ts                  # Page interaction helpers
+│   ├── helpers.ts                  # Page interaction helpers
+│   └── encryption.ts               # Password encryption utilities
 ├── 📁 scripts/                     # Development Tools
 │   ├── token-counter.js            # Token analysis tool
 │   ├── full-development-token-counter.js  # Development cost estimator
 │   ├── universal-token-counter.ps1  # PowerShell alternative
-│   └── TOKEN-COUNTER-USAGE.md      # Usage documentation
+│   └── encrypt-password.js         # Password encryption utility
 ├── 📁 .github/                     # GitHub Configuration
 │   └── copilot-instructions.md     # AI coding guidelines
+├── TOKEN-COUNTER-USAGE.md          # Token analysis usage guide
+├── PASSWORD-ENCRYPTION.md          # Security setup guide
+├── .env.example                    # Environment variables template
 ├── cucumber.js                     # Cucumber configuration
 ├── playwright.config.ts            # Playwright settings
 └── package.json                    # Dependencies & scripts
@@ -186,7 +190,7 @@ This framework can be easily adapted for different web applications:
 4. **Configure Playwright** - Adjust browser and test settings
 
 ### Copying to New Projects
-- See `scripts/TOKEN-COUNTER-USAGE.md` for token counting tools
+- See `TOKEN-COUNTER-USAGE.md` for token counting tools
 - See `PASSWORD-ENCRYPTION.md` for secure credential setup
 
 ## 🔐 Security Features
