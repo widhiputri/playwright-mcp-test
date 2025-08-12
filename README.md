@@ -1,114 +1,197 @@
-# Playwright Test for Drax Asset Management
+# Playwright E2E Testing Framework
 
-This project contains Playwright tests for the Drax Asset Management system, specifically testing client and entity management functionality.
+A comprehensive end-to-end testing framework built with Playwright and Cucumber BDD, featuring MCP integration and advanced token counting tools for development cost analysis.
 
-## Test Scenario
+## 🚀 Features
 
-The main test scenario covers:
-1. Navigate to https://ui.am.drax.dev/
-2. Login as operator user (qa-op@hydrax.io with password hXadmin@2018)
-3. Open sidebar menu and access Account Management under the Clients tab
-4. Generate a unique client name using a timestamp
-5. Check if client already exists in the client table
-6. Create a new client with Intermediary type
-7. Verify the newly created client appears in the client table
-8. Switch to the Entities tab
-9. Create a new entity with Corporate type
-10. Fill all mandatory fields and submit the entity
-11. Verify that the entity is successfully saved
-12. Verify that the entity appears in the entity table
-13. Verify that the entity status is under_review
+### Modern Testing Stack
+- **Playwright** - Fast, reliable E2E testing
+- **Cucumber BDD** - Human-readable test scenarios
+- **TypeScript** - Type-safe test development
+- **MCP Integration** - Live DOM inspection and selector validation
 
-## Project Structure
+### Test Scenarios
+Current test coverage includes:
+- **User Authentication** - Login workflows and session management
+- **Navigation** - Sidebar menus and page routing
+- **Data Management** - CRUD operations for entities and records
+- **Form Validation** - Input validation and error handling
+- **Dynamic Content** - Table interactions and status verification
+
+*See `/features` directory for detailed Gherkin scenarios*
+
+## 📁 Project Structure
 
 ```
-├── features/
-│   ├── client-entity-management.feature  # Gherkin feature file
-│   └── steps/
-│       └── client-entity-management.ts   # Step definitions
-├── support/
-│   └── hooks.ts                          # Test hooks (setup/teardown)
-├── utils/
-│   ├── constants.ts                      # Constants (URLs, credentials, selectors)
-│   └── helpers.ts                        # Helper classes for different page actions
-├── cucumber.js                           # Cucumber configuration
-├── playwright.config.ts                 # Playwright configuration
-├── package.json                          # Dependencies and scripts
-└── tsconfig.json                         # TypeScript configuration
+📦 playwright-mcp-test/
+├── 📁 features/                    # BDD Test Scenarios
+│   ├── *.feature                   # Gherkin feature files
+│   └── 📁 steps/                   # Step definitions
+├── 📁 support/                     # Test Configuration
+│   └── hooks.ts                    # Setup/teardown hooks
+├── 📁 utils/                       # Shared Utilities
+│   ├── constants.ts                # App constants & credentials
+│   └── helpers.ts                  # Page interaction helpers
+├── 📁 scripts/                     # Development Tools
+│   ├── token-counter.js            # Token analysis tool
+│   ├── full-development-token-counter.js  # Development cost estimator
+│   ├── universal-token-counter.ps1  # PowerShell alternative
+│   └── TOKEN-COUNTER-USAGE.md      # Usage documentation
+├── 📁 .github/                     # GitHub Configuration
+│   └── copilot-instructions.md     # AI coding guidelines
+├── cucumber.js                     # Cucumber configuration
+├── playwright.config.ts            # Playwright settings
+└── package.json                    # Dependencies & scripts
 ```
 
-## Key Features
+## 🎯 Key Features
 
-### Dynamic Test Data
-- Uses `Date.now()` timestamps to generate unique client and entity names
-- Prevents data conflicts across multiple test runs
+### Intelligent Test Design
+- **Dynamic Test Data** - Timestamp-based unique identifiers prevent data conflicts
+- **Robust Selectors** - Semantic locators with fallback strategies
+- **Error Resilience** - Comprehensive exception handling and retry logic
+- **Cross-Browser Support** - Tested across multiple browser engines
 
-### Robust Selectors
-- Utilizes semantic locators and role-based selectors verified via MCP
-- Fallback selectors for better reliability
-- Handles dynamic dropdown selections properly
+### Test Categories
+- **@smoke** - Core functionality validation
+- **@regression** - Comprehensive feature testing  
+- **@negative** - Error handling and validation
+- **@edge-case** - Boundary condition testing
 
-### Test Coverage
-- **@smoke**: Main happy path scenario
-- **@negative**: Validation testing with empty fields
-- **@edge-case**: Testing entity creation without required client selection
+### Helper Architecture
+- **Modular Design** - Separated concerns with dedicated helper classes
+- **Page Object Model** - Clean abstraction of UI interactions
+- **Reusable Components** - Shared utilities across test scenarios
+- **Type Safety** - Full TypeScript integration for better maintainability
 
-### Helper Classes
-- `LoginHelper`: Handles authentication
-- `NavigationHelper`: Manages sidebar and page navigation
-- `ClientHelper`: Client creation and verification
-- `EntityHelper`: Entity creation and verification
+## 🧮 Token Counting Toolkit
 
-## Running Tests
+Advanced development cost analysis tools included:
 
+### Basic Analysis (`token-counter.js`)
+- INPUT vs OUTPUT token separation
+- File-type breakdown with cost estimation
+- Deliverable size analysis
+
+### Full Development Analysis (`full-development-token-counter.js`)
+- Complete development effort estimation
+- Conversation, debugging, and iteration costs
+- 17.6x development multiplier calculations
+- ROI and cost comparison reporting
+
+### PowerShell Alternative (`universal-token-counter.ps1`)
+- Windows-native implementation
+- Same analysis capabilities
+- No Node.js dependencies required
+
+## 🚦 Running Tests
+
+### Quick Start
 ```bash
 # Install dependencies
 npm install
 
-# Install browsers
+# Install Playwright browsers
 npm run install:browsers
 
 # Run all tests
 npm test
-
-# Run specific test suites
-npm run test:smoke      # Main scenario only
-npm run test:negative   # Validation tests
-npm run test:edge      # Edge case tests
 ```
 
-## Configuration
+### Test Execution Options
+```bash
+# Targeted test runs
+npm run test:smoke      # Core functionality
+npm run test:regression # Full test suite
+npm run test:negative   # Error validation
+npm run test:edge      # Edge cases
 
-### Browser Settings
-- Uses Chromium browser
-- Runs in non-headless mode for better debugging
-- Captures screenshots on failure
-- Records traces on retry
+# Development utilities  
+npm run count-tokens    # Analyze current project size
+npm run count-full-dev  # Estimate development costs
+```
 
-### Test Settings
-- 30-second timeout for step definitions
-- Automatic retry on CI environments
-- Detailed logging and error reporting
+### Token Analysis
+```bash
+# Basic project analysis
+npm run count-tokens
 
-## Development Notes
+# Full development cost estimation
+npm run count-full-dev
 
-### MCP Integration
-This project was developed using the Playwright MCP (Model Context Protocol) server to:
-- Inspect live DOM structure
-- Validate selectors in real-time
-- Test interactions before implementing in code
+# Detailed reporting with JSON export
+npm run count-tokens -- --detailed --output report.json
+```
+
+## ⚙️ Configuration
+
+### Browser & Test Settings
+- **Default Browser**: Chromium (configurable)
+- **Execution Mode**: Non-headless for debugging
+- **Timeout**: 30s for step definitions
+- **Retry Strategy**: Automatic on CI environments
+- **Artifacts**: Screenshots on failure, trace on retry
+
+## 🛠️ Development Guide
+
+### Adding New Test Scenarios
+
+1. **Create Feature File** (`features/new-scenario.feature`)
+   ```gherkin
+   Feature: New Functionality
+     Scenario: Test new feature
+       Given a user is logged in
+       When they perform an action
+       Then the result should be visible
+   ```
+
+2. **Implement Step Definitions** (`features/steps/new-scenario.ts`)
+   ```typescript
+   Given('a user is logged in', async function() {
+     await this.loginHelper.login();
+   });
+   ```
+
+3. **Extend Helper Classes** (`utils/helpers.ts`)
+   ```typescript
+   export class NewFeatureHelper {
+     constructor(private page: Page) {}
+     // Add methods for new functionality
+   }
+   ```
+
+### MCP Integration Benefits
+- **Live DOM Inspection** - Real-time selector validation
+- **Interactive Testing** - Test actions before implementation
+- **Selector Optimization** - Find the most reliable locators
+- **Debugging Support** - Instant feedback during development
 
 ### Best Practices
-- Follows TypeScript and Playwright best practices
-- Separates concerns with helper classes and utilities
-- Uses semantic selectors for better maintainability
-- Includes comprehensive error handling
+- ✅ Use semantic selectors (`getByRole`, `getByLabel`)
+- ✅ Implement proper wait strategies (`waitForLoadState`)
+- ✅ Handle errors gracefully with try-catch blocks
+- ✅ Generate unique test data using timestamps
+- ✅ Separate concerns with dedicated helper classes
+- ✅ Use TypeScript for better code quality
 
-## Test Results
+## 🎯 Project Reusability
 
-All tests successfully pass:
-- ✅ Main client and entity creation workflow
-- ✅ Validation error handling for empty fields  
-- ✅ Edge case handling for incomplete entity creation
+This framework can be easily adapted for different web applications:
 
-The tests demonstrate successful automation of the complete client and entity management workflow with proper verification of all success states and error conditions.
+1. **Update Constants** - Modify URLs and credentials in `utils/constants.ts`
+2. **Adapt Helpers** - Customize page interaction methods
+3. **Create Features** - Write new Gherkin scenarios for your use cases
+4. **Configure Playwright** - Adjust browser and test settings
+
+### Copying to New Projects
+See `scripts/TOKEN-COUNTER-USAGE.md` for detailed instructions on copying the token counting tools to other projects.
+
+## 📊 Results & Reporting
+
+The framework provides comprehensive reporting:
+- **Cucumber Reports** - HTML reports with step-by-step details
+- **Playwright Reports** - Test execution traces and screenshots
+- **Token Analysis** - Development cost and project size metrics
+- **Error Logging** - Detailed failure information for debugging
+
+*All tests successfully validate the complete workflow with proper verification of success states and error conditions.*
