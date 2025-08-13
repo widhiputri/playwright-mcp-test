@@ -1,7 +1,6 @@
 export const URLS = {
   DEV_BASE_URL: 'https://ui.am.drax.dev',
   PAGES: {
-    LOGIN: '/login',
     DASHBOARD: '/dashboard',
     CLIENT_MANAGEMENT: '/clients',
     ENTITY_MANAGEMENT: '/entities'
