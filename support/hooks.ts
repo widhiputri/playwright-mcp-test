@@ -10,7 +10,9 @@ let page: Page;
 
 BeforeAll(async function () {
   // Launch browser once for all scenarios
-  browser = await chromium.launch({ headless: false });
+  // Use HEADLESS environment variable, default to false for debugging
+  const headless = process.env.HEADLESS === 'true' || process.env.CI === 'true';
+  browser = await chromium.launch({ headless });
 });
 
 Before(async function () {
